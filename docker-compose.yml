@@ -1,0 +1,13 @@
+version: '3'
+services:
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my-apache-php-app
+    volumes:
+      - type: bind
+        source: ./app/src
+        target: /var/www/html
+    ports:
+      - "8080:80"
